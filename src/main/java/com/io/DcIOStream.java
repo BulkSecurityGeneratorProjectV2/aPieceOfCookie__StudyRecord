@@ -3,6 +3,7 @@ package com.io;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
 
 public class DcIOStream {
 
@@ -74,7 +75,7 @@ public class DcIOStream {
         try {
             //利用时间戳创建一个头像文件
             long timeMillis = System.currentTimeMillis();
-            file=File.createTempFile(timeMillis+"",fileType);
+            file=Files.createTempFile(timeMillis + "",fileType).toFile();
             //下载
             URL picUrl=new URL(url);
             is=picUrl.openStream();
